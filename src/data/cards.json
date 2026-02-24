@@ -1,0 +1,1102 @@
+[
+    {
+        "id": 1,
+        "word": "Pizza",
+        "forbiddenWords": [
+            "Margherita",
+            "Pomodoro",
+            "Mozzarella",
+            "Forno",
+            "Napoli"
+        ]
+    },
+    {
+        "id": 2,
+        "word": "Pasta",
+        "forbiddenWords": [
+            "Spaghetti",
+            "Sugo",
+            "Acqua",
+            "Bollire",
+            "Carboidrati"
+        ]
+    },
+    {
+        "id": 3,
+        "word": "Gelato",
+        "forbiddenWords": [
+            "Freddo",
+            "Cono",
+            "Coppetta",
+            "Gusti",
+            "Estate"
+        ]
+    },
+    {
+        "id": 4,
+        "word": "Mela",
+        "forbiddenWords": [
+            "Frutto",
+            "Albero",
+            "Rossa",
+            "Biancaneve",
+            "Torta"
+        ]
+    },
+    {
+        "id": 5,
+        "word": "Pane",
+        "forbiddenWords": [
+            "Forno",
+            "Farina",
+            "Lievito",
+            "Panetteria",
+            "Crostino"
+        ]
+    },
+    {
+        "id": 6,
+        "word": "Acqua",
+        "forbiddenWords": [
+            "Bere",
+            "Sete",
+            "Liquido",
+            "Bottiglia",
+            "Bicchiere"
+        ]
+    },
+    {
+        "id": 7,
+        "word": "Vino",
+        "forbiddenWords": [
+            "Uva",
+            "Rosso",
+            "Bianco",
+            "Alcol",
+            "Bere"
+        ]
+    },
+    {
+        "id": 8,
+        "word": "Caffè",
+        "forbiddenWords": [
+            "Mattina",
+            "Espresso",
+            "Bar",
+            "Tazzina",
+            "Sveglia"
+        ]
+    },
+    {
+        "id": 9,
+        "word": "Formaggio",
+        "forbiddenWords": [
+            "Latte",
+            "Mucca",
+            "Giallo",
+            "Parmigiano",
+            "Topi"
+        ]
+    },
+    {
+        "id": 10,
+        "word": "Cioccolato",
+        "forbiddenWords": [
+            "Cacao",
+            "Dolce",
+            "Latte",
+            "Fondente",
+            "Tavoletta"
+        ]
+    },
+    {
+        "id": 11,
+        "word": "Biscotto",
+        "forbiddenWords": [
+            "Colazione",
+            "Latte",
+            "Inzuppare",
+            "Forno",
+            "Gocce"
+        ]
+    },
+    {
+        "id": 12,
+        "word": "Torta",
+        "forbiddenWords": [
+            "Compleanno",
+            "Candeline",
+            "Festa",
+            "Dolce",
+            "Fetta"
+        ]
+    },
+    {
+        "id": 13,
+        "word": "Patatine",
+        "forbiddenWords": [
+            "Fritte",
+            "Busta",
+            "Sale",
+            "Ketchup",
+            "Patata"
+        ]
+    },
+    {
+        "id": 14,
+        "word": "Pesce",
+        "forbiddenWords": [
+            "Mare",
+            "Acqua",
+            "Nuotare",
+            "Rete",
+            "Lische"
+        ]
+    },
+    {
+        "id": 15,
+        "word": "Carne",
+        "forbiddenWords": [
+            "Bistecca",
+            "Mucca",
+            "Griglia",
+            "Macellaio",
+            "Taglio"
+        ]
+    },
+    {
+        "id": 16,
+        "word": "Zuppa",
+        "forbiddenWords": [
+            "Minestra",
+            "Brodo",
+            "Calda",
+            "Cucchiaio",
+            "Piatto"
+        ]
+    },
+    {
+        "id": 17,
+        "word": "Uovo",
+        "forbiddenWords": [
+            "Gallina",
+            "Sodo",
+            "Fritto",
+            "Guscio",
+            "Frittata"
+        ]
+    },
+    {
+        "id": 18,
+        "word": "Hamburger",
+        "forbiddenWords": [
+            "Panino",
+            "Fast food",
+            "Carne",
+            "Patatine",
+            "McDonald's"
+        ]
+    },
+    {
+        "id": 19,
+        "word": "Insalata",
+        "forbiddenWords": [
+            "Verde",
+            "Verdura",
+            "Pomodori",
+            "Condimento",
+            "Foglie"
+        ]
+    },
+    {
+        "id": 20,
+        "word": "Latte",
+        "forbiddenWords": [
+            "Mucca",
+            "Bianco",
+            "Bere",
+            "Colazione",
+            "Calcio"
+        ]
+    },
+    {
+        "id": 21,
+        "word": "Cane",
+        "forbiddenWords": [
+            "Abbaiare",
+            "Animale",
+            "Gatto",
+            "Osso",
+            "Guinzaglio"
+        ]
+    },
+    {
+        "id": 22,
+        "word": "Gatto",
+        "forbiddenWords": [
+            "Miao",
+            "Felino",
+            "Cane",
+            "Graffiare",
+            "Topo"
+        ]
+    },
+    {
+        "id": 23,
+        "word": "Topo",
+        "forbiddenWords": [
+            "Gatto",
+            "Formaggio",
+            "Coda",
+            "Rosicchiare",
+            "Trappola"
+        ]
+    },
+    {
+        "id": 24,
+        "word": "Cavallo",
+        "forbiddenWords": [
+            "Cavalcare",
+            "Sella",
+            "Zoccoli",
+            "Criniera",
+            "Galoppo"
+        ]
+    },
+    {
+        "id": 25,
+        "word": "Mucca",
+        "forbiddenWords": [
+            "Latte",
+            "Fattoria",
+            "Muggire",
+            "Macchie",
+            "Erba"
+        ]
+    },
+    {
+        "id": 26,
+        "word": "Maiale",
+        "forbiddenWords": [
+            "Rosa",
+            "Prosciutto",
+            "Fango",
+            "Grugnire",
+            "Fattoria"
+        ]
+    },
+    {
+        "id": 27,
+        "word": "Uccello",
+        "forbiddenWords": [
+            "Volare",
+            "Ali",
+            "Cielo",
+            "Nido",
+            "Piume"
+        ]
+    },
+    {
+        "id": 28,
+        "word": "Leone",
+        "forbiddenWords": [
+            "Re",
+            "Foresta",
+            "Ruggito",
+            "Criniera",
+            "Feroce"
+        ]
+    },
+    {
+        "id": 29,
+        "word": "Tigre",
+        "forbiddenWords": [
+            "Strisce",
+            "Felino",
+            "Gabbia",
+            "Feroce",
+            "Arancione"
+        ]
+    },
+    {
+        "id": 30,
+        "word": "Elefante",
+        "forbiddenWords": [
+            "Proboscide",
+            "Zanne",
+            "Grande",
+            "Africa",
+            "Grigio"
+        ]
+    },
+    {
+        "id": 31,
+        "word": "Scimmia",
+        "forbiddenWords": [
+            "Banana",
+            "Albero",
+            "Arrampicarsi",
+            "Gorilla",
+            "Zoo"
+        ]
+    },
+    {
+        "id": 32,
+        "word": "Serpente",
+        "forbiddenWords": [
+            "Strisciare",
+            "Velenoso",
+            "Lingua",
+            "Pelle",
+            "Sibilo"
+        ]
+    },
+    {
+        "id": 33,
+        "word": "Ragno",
+        "forbiddenWords": [
+            "Ragnatela",
+            "Insetto",
+            "Zampe",
+            "Paura",
+            "Muro"
+        ]
+    },
+    {
+        "id": 34,
+        "word": "Farfalla",
+        "forbiddenWords": [
+            "Ali",
+            "Volare",
+            "Bruco",
+            "Colori",
+            "Fiore"
+        ]
+    },
+    {
+        "id": 35,
+        "word": "Ape",
+        "forbiddenWords": [
+            "Miele",
+            "Pungere",
+            "Giallo",
+            "Nero",
+            "Fiore"
+        ]
+    },
+    {
+        "id": 36,
+        "word": "Orso",
+        "forbiddenWords": [
+            "Grizzly",
+            "Miele",
+            "Letargo",
+            "Foresta",
+            "Peluche"
+        ]
+    },
+    {
+        "id": 37,
+        "word": "Pinguino",
+        "forbiddenWords": [
+            "Polo Sud",
+            "Ghiaccio",
+            "Freddo",
+            "Uccello",
+            "Bianco e nero"
+        ]
+    },
+    {
+        "id": 38,
+        "word": "Delfino",
+        "forbiddenWords": [
+            "Mare",
+            "Nuotare",
+            "Intelligente",
+            "Acqua",
+            "Salto"
+        ]
+    },
+    {
+        "id": 39,
+        "word": "Squalo",
+        "forbiddenWords": [
+            "Mare",
+            "Denti",
+            "Pericoloso",
+            "Pinna",
+            "Sangue"
+        ]
+    },
+    {
+        "id": 40,
+        "word": "Zanzara",
+        "forbiddenWords": [
+            "Insetto",
+            "Pungere",
+            "Sangue",
+            "Estate",
+            "Prurito"
+        ]
+    },
+    {
+        "id": 41,
+        "word": "Computer",
+        "forbiddenWords": [
+            "Schermo",
+            "Tastiera",
+            "Mouse",
+            "Internet",
+            "Scrivere"
+        ]
+    },
+    {
+        "id": 42,
+        "word": "Telefono",
+        "forbiddenWords": [
+            "Chiamare",
+            "Cellulare",
+            "Messaggio",
+            "Schermo",
+            "Numero"
+        ]
+    },
+    {
+        "id": 43,
+        "word": "Libro",
+        "forbiddenWords": [
+            "Leggere",
+            "Pagine",
+            "Copertina",
+            "Biblioteca",
+            "Storia"
+        ]
+    },
+    {
+        "id": 44,
+        "word": "Penna",
+        "forbiddenWords": [
+            "Scrivere",
+            "Inchiostro",
+            "Foglio",
+            "Matita",
+            "Quaderno"
+        ]
+    },
+    {
+        "id": 45,
+        "word": "Macchina",
+        "forbiddenWords": [
+            "Guidare",
+            "Ruote",
+            "Motore",
+            "Strada",
+            "Patente"
+        ]
+    },
+    {
+        "id": 46,
+        "word": "Bicicletta",
+        "forbiddenWords": [
+            "Pedali",
+            "Ruote",
+            "Montare",
+            "Pista",
+            "Casco"
+        ]
+    },
+    {
+        "id": 47,
+        "word": "Orologio",
+        "forbiddenWords": [
+            "Tempo",
+            "Ora",
+            "Polso",
+            "Lancette",
+            "Minuti"
+        ]
+    },
+    {
+        "id": 48,
+        "word": "Scarpe",
+        "forbiddenWords": [
+            "Piedi",
+            "Camminare",
+            "Lacci",
+            "Suola",
+            "Calzini"
+        ]
+    },
+    {
+        "id": 49,
+        "word": "Vestito",
+        "forbiddenWords": [
+            "Indossare",
+            "Abito",
+            "Elegante",
+            "Gonna",
+            "Armadio"
+        ]
+    },
+    {
+        "id": 50,
+        "word": "Sedia",
+        "forbiddenWords": [
+            "Sedersi",
+            "Tavolo",
+            "Gambe",
+            "Schienale",
+            "Mobili"
+        ]
+    },
+    {
+        "id": 51,
+        "word": "Tavolo",
+        "forbiddenWords": [
+            "Mangiare",
+            "Sedia",
+            "Cucina",
+            "Legno",
+            "Appoggiare"
+        ]
+    },
+    {
+        "id": 52,
+        "word": "Letto",
+        "forbiddenWords": [
+            "Dormire",
+            "Cuscino",
+            "Coperte",
+            "Camera",
+            "Materasso"
+        ]
+    },
+    {
+        "id": 53,
+        "word": "Divano",
+        "forbiddenWords": [
+            "Sedersi",
+            "Salotto",
+            "Televisione",
+            "Cuscini",
+            "Rilassarsi"
+        ]
+    },
+    {
+        "id": 54,
+        "word": "Porta",
+        "forbiddenWords": [
+            "Aprire",
+            "Chiudere",
+            "Maniglia",
+            "Entrare",
+            "Uscire"
+        ]
+    },
+    {
+        "id": 55,
+        "word": "Finestra",
+        "forbiddenWords": [
+            "Vetro",
+            "Guardare",
+            "Aprire",
+            "Luce",
+            "Tenda"
+        ]
+    },
+    {
+        "id": 56,
+        "word": "Specchio",
+        "forbiddenWords": [
+            "Guardarsi",
+            "Riflesso",
+            "Vetro",
+            "Faccia",
+            "Bagno"
+        ]
+    },
+    {
+        "id": 57,
+        "word": "Occhiali",
+        "forbiddenWords": [
+            "Vedere",
+            "Occhi",
+            "Lenti",
+            "Vista",
+            "Sole"
+        ]
+    },
+    {
+        "id": 58,
+        "word": "Borsa",
+        "forbiddenWords": [
+            "Portare",
+            "Donna",
+            "Tracolla",
+            "Manici",
+            "Zaino"
+        ]
+    },
+    {
+        "id": 59,
+        "word": "Chiave",
+        "forbiddenWords": [
+            "Serratura",
+            "Aprire",
+            "Porta",
+            "Macchina",
+            "Mazzo"
+        ]
+    },
+    {
+        "id": 60,
+        "word": "Portafoglio",
+        "forbiddenWords": [
+            "Soldi",
+            "Banconote",
+            "Monete",
+            "Tasca",
+            "Pagare"
+        ]
+    },
+    {
+        "id": 61,
+        "word": "Scuola",
+        "forbiddenWords": [
+            "Studiare",
+            "Alunni",
+            "Insegnante",
+            "Classe",
+            "Compiti"
+        ]
+    },
+    {
+        "id": 62,
+        "word": "Ospedale",
+        "forbiddenWords": [
+            "Malato",
+            "Dottore",
+            "Medicina",
+            "Curare",
+            "Infermiere"
+        ]
+    },
+    {
+        "id": 63,
+        "word": "Banca",
+        "forbiddenWords": [
+            "Soldi",
+            "Conto",
+            "Prelevare",
+            "Risparmi",
+            "Bancomat"
+        ]
+    },
+    {
+        "id": 64,
+        "word": "Ristorante",
+        "forbiddenWords": [
+            "Mangiare",
+            "Cameriere",
+            "Menu",
+            "Conto",
+            "Tavolo"
+        ]
+    },
+    {
+        "id": 65,
+        "word": "Cinema",
+        "forbiddenWords": [
+            "Film",
+            "Schermo",
+            "Popcorn",
+            "Biglietto",
+            "Vedere"
+        ]
+    },
+    {
+        "id": 66,
+        "word": "Teatro",
+        "forbiddenWords": [
+            "Attori",
+            "Palco",
+            "Spettacolo",
+            "Sipari",
+            "Pubblico"
+        ]
+    },
+    {
+        "id": 67,
+        "word": "Supermercato",
+        "forbiddenWords": [
+            "Spesa",
+            "Carrello",
+            "Comprare",
+            "Cibo",
+            "Cassa"
+        ]
+    },
+    {
+        "id": 68,
+        "word": "Parco",
+        "forbiddenWords": [
+            "Passeggiare",
+            "Alberi",
+            "Erba",
+            "Panchina",
+            "Bambini"
+        ]
+    },
+    {
+        "id": 69,
+        "word": "Spiaggia",
+        "forbiddenWords": [
+            "Mare",
+            "Sabbia",
+            "Sole",
+            "Ombrellone",
+            "Estate"
+        ]
+    },
+    {
+        "id": 70,
+        "word": "Montagna",
+        "forbiddenWords": [
+            "Neve",
+            "Sciare",
+            "Alpi",
+            "Scalare",
+            "Freddo"
+        ]
+    },
+    {
+        "id": 71,
+        "word": "Città",
+        "forbiddenWords": [
+            "Palazzi",
+            "Traffico",
+            "Strade",
+            "Centro",
+            "Paese"
+        ]
+    },
+    {
+        "id": 72,
+        "word": "Nazione",
+        "forbiddenWords": [
+            "Stato",
+            "Confini",
+            "Bandiera",
+            "Paese",
+            "Mondo"
+        ]
+    },
+    {
+        "id": 73,
+        "word": "Casa",
+        "forbiddenWords": [
+            "Abitare",
+            "Tetto",
+            "Famiglia",
+            "Stanze",
+            "Vivere"
+        ]
+    },
+    {
+        "id": 74,
+        "word": "Ufficio",
+        "forbiddenWords": [
+            "Lavorare",
+            "Scrivania",
+            "Computer",
+            "Colleghi",
+            "Capo"
+        ]
+    },
+    {
+        "id": 75,
+        "word": "Aeroporto",
+        "forbiddenWords": [
+            "Aereo",
+            "Volare",
+            "Valigie",
+            "Viaggio",
+            "Passeggeri"
+        ]
+    },
+    {
+        "id": 76,
+        "word": "Stazione",
+        "forbiddenWords": [
+            "Treno",
+            "Binario",
+            "Biglietto",
+            "Viaggiare",
+            "Aspettare"
+        ]
+    },
+    {
+        "id": 77,
+        "word": "Museo",
+        "forbiddenWords": [
+            "Arte",
+            "Quadri",
+            "Statue",
+            "Visitare",
+            "Mostra"
+        ]
+    },
+    {
+        "id": 78,
+        "word": "Chiesa",
+        "forbiddenWords": [
+            "Prete",
+            "Messa",
+            "Religione",
+            "Dio",
+            "Pregare"
+        ]
+    },
+    {
+        "id": 79,
+        "word": "Piazza",
+        "forbiddenWords": [
+            "Centro",
+            "Fontana",
+            "Incontro",
+            "Città",
+            "Persone"
+        ]
+    },
+    {
+        "id": 80,
+        "word": "Strada",
+        "forbiddenWords": [
+            "Macchine",
+            "Guidare",
+            "Asfalto",
+            "Traffico",
+            "Attraversare"
+        ]
+    },
+    {
+        "id": 81,
+        "word": "Amore",
+        "forbiddenWords": [
+            "Cuore",
+            "Sentimento",
+            "Bacio",
+            "Fidanzati",
+            "Ti amo"
+        ]
+    },
+    {
+        "id": 82,
+        "word": "Amicizia",
+        "forbiddenWords": [
+            "Amico",
+            "Legame",
+            "Fiducia",
+            "Insieme",
+            "Volersi bene"
+        ]
+    },
+    {
+        "id": 83,
+        "word": "Dottore",
+        "forbiddenWords": [
+            "Medico",
+            "Ospedale",
+            "Curare",
+            "Malattia",
+            "Paziente"
+        ]
+    },
+    {
+        "id": 84,
+        "word": "Insegnante",
+        "forbiddenWords": [
+            "Scuola",
+            "Alunni",
+            "Cattedra",
+            "Spiegare",
+            "Professore"
+        ]
+    },
+    {
+        "id": 85,
+        "word": "Poliziotto",
+        "forbiddenWords": [
+            "Arrestare",
+            "Ladri",
+            "Divisa",
+            "Pistola",
+            "Multa"
+        ]
+    },
+    {
+        "id": 86,
+        "word": "Fuoco",
+        "forbiddenWords": [
+            "Caldo",
+            "Bruciare",
+            "Fiamma",
+            "Incendio",
+            "Pompieri"
+        ]
+    },
+    {
+        "id": 87,
+        "word": "Terra",
+        "forbiddenWords": [
+            "Pianeta",
+            "Mondo",
+            "Suolo",
+            "Spazio",
+            "Globo"
+        ]
+    },
+    {
+        "id": 88,
+        "word": "Aria",
+        "forbiddenWords": [
+            "Respirare",
+            "Vento",
+            "Invisibile",
+            "Ossigeno",
+            "Soffiare"
+        ]
+    },
+    {
+        "id": 89,
+        "word": "Sole",
+        "forbiddenWords": [
+            "Giallo",
+            "Cielo",
+            "Caldo",
+            "Estate",
+            "Luce"
+        ]
+    },
+    {
+        "id": 90,
+        "word": "Luna",
+        "forbiddenWords": [
+            "Notte",
+            "Cielo",
+            "Stelle",
+            "Piena",
+            "Bianca"
+        ]
+    },
+    {
+        "id": 91,
+        "word": "Stella",
+        "forbiddenWords": [
+            "Cielo",
+            "Notte",
+            "Brillare",
+            "Desiderio",
+            "Cometa"
+        ]
+    },
+    {
+        "id": 92,
+        "word": "Notte",
+        "forbiddenWords": [
+            "Buio",
+            "Dormire",
+            "Giorno",
+            "Sera",
+            "Luna"
+        ]
+    },
+    {
+        "id": 93,
+        "word": "Giorno",
+        "forbiddenWords": [
+            "Luce",
+            "Sole",
+            "Mattina",
+            "Notte",
+            "Oggi"
+        ]
+    },
+    {
+        "id": 94,
+        "word": "Tempo",
+        "forbiddenWords": [
+            "Orologio",
+            "Ore",
+            "Minuti",
+            "Scorrere",
+            "Passare"
+        ]
+    },
+    {
+        "id": 95,
+        "word": "Denaro",
+        "forbiddenWords": [
+            "Soldi",
+            "Comprare",
+            "Ricco",
+            "Banca",
+            "Pagare"
+        ]
+    },
+    {
+        "id": 96,
+        "word": "Musica",
+        "forbiddenWords": [
+            "Ascoltare",
+            "Canzone",
+            "Suonare",
+            "Strumento",
+            "Cantante"
+        ]
+    },
+    {
+        "id": 97,
+        "word": "Arte",
+        "forbiddenWords": [
+            "Quadri",
+            "Dipingere",
+            "Pittore",
+            "Museo",
+            "Disegno"
+        ]
+    },
+    {
+        "id": 98,
+        "word": "Sport",
+        "forbiddenWords": [
+            "Fisico",
+            "Allenamento",
+            "Partita",
+            "Gara",
+            "Giocare"
+        ]
+    },
+    {
+        "id": 99,
+        "word": "Calcio",
+        "forbiddenWords": [
+            "Pallone",
+            "Campo",
+            "Squadra",
+            "Gol",
+            "Tirare"
+        ]
+    },
+    {
+        "id": 100,
+        "word": "Fotografia",
+        "forbiddenWords": [
+            "Macchina",
+            "Scattare",
+            "Immagine",
+            "Ricordo",
+            "Flash"
+        ]
+    }
+]

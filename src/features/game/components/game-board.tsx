@@ -4,29 +4,76 @@ import { Check, X, SkipForward, Timer, Pause, Play, Square } from 'lucide-react'
 import { useEffect, useState } from 'react';
 
 interface GameBoardProps {
-    card: Card;
-    onCorrect: () => void;
-    onPass: () => void;
-    onTaboo: () => void;
-    onTimeUp: () => void;
+    readonly card: Card;
+    readonly onCorrect: () => void;
+    readonly onPass: () => void;
+    readonly onTaboo: () => void;
+    readonly onTimeUp: () => void;
+
+    // Timer props
+    readonly startTime: number | null;
+    readonly accumulatedPausedTime: number;
+    readonly isPaused: boolean;
+    readonly lastPauseTime: number | null;
+    readonly timerDuration: number;
+
+    // Pausing actions
+    readonly onPause: () => void;
+    readonly onResume: () => void;
 }
 
-export function GameBoard({ card, onCorrect, onPass, onTaboo, onTimeUp }: GameBoardProps) {
-    const [timeLeft, setTimeLeft] = useState(60);
-    const [isPaused, setIsPaused] = useState(false);
+export function GameBoard({
+    card, onCorrect, onPass, onTaboo, onTimeUp,
+    startTime, accumulatedPausedTime, isPaused, lastPauseTime, timerDuration,
+    onPause, onResume
+}: GameBoardProps) {
+    const [timeLeft, setTimeLeft] = useState(() => timerDuration / 1000);
 
     useEffect(() => {
-        if (timeLeft <= 0) {
+        const calculateTimeLeft = () => {
+            if (!startTime) return timerDuration / 1000;
+
+            let elapsed = 0;
+            const now = Date.now();
+
+            if (isPaused && lastPauseTime) {
+                elapsed = lastPauseTime - startTime - accumulatedPausedTime;
+            } else {
+                elapsed = now - startTime - accumulatedPausedTime;
+            }
+
+            const remaining = Math.max(0, timerDuration - elapsed);
+            return Math.ceil(remaining / 1000);
+        };
+
+        const initialRemaining = calculateTimeLeft();
+        setTimeLeft(initialRemaining);
+
+        if (initialRemaining <= 0) {
             onTimeUp();
             return;
         }
-        if (isPaused) return;
 
-        const timer = setInterval(() => {
-            setTimeLeft((t) => t - 1);
-        }, 1000);
-        return () => clearInterval(timer);
-    }, [timeLeft, isPaused, onTimeUp]);
+        const interval = setInterval(() => {
+            const remainingSec = calculateTimeLeft();
+            setTimeLeft(remainingSec);
+            if (remainingSec <= 0) {
+                onTimeUp();
+                clearInterval(interval);
+            }
+        }, 100);
+
+        return () => clearInterval(interval);
+
+    }, [startTime, accumulatedPausedTime, isPaused, lastPauseTime, timerDuration, onTimeUp]);
+
+    const handlePauseToggle = () => {
+        if (isPaused) {
+            onResume();
+        } else {
+            onPause();
+        }
+    };
 
     return (
         <div className="flex flex-col space-y-6 w-full animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -45,7 +92,7 @@ export function GameBoard({ card, onCorrect, onPass, onTaboo, onTimeUp }: GameBo
                             variant="outline"
                             size="icon"
                             className="h-8 w-8 rounded-full bg-zinc-800 border-zinc-700 text-zinc-300 hover:text-white hover:bg-zinc-700 transition-all"
-                            onClick={() => setIsPaused(!isPaused)}
+                            onClick={handlePauseToggle}
                             title={isPaused ? "Riprendi" : "Pausa"}
                         >
                             {isPaused ? <Play className="h-4 w-4 ml-0.5 fill-current" /> : <Pause className="h-4 w-4 fill-current" />}

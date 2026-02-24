@@ -1,64 +1,28 @@
 'use client';
 
 import { useCardsQuery } from '../game.queries';
-import { GamePhase, Card } from '../game.models';
-import { useState, useCallback } from 'react';
 import { HomeScreen } from './home-screen';
 import { GameBoard } from './game-board';
 import { EndScreen } from './end-screen';
 import { Loader2 } from 'lucide-react';
-
-// Fisher-Yates shuffle
-function shuffle<T>(array: T[]): T[] {
-    const newArr = [...array];
-    for (let i = newArr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    return newArr;
-}
+import { useGameState } from '../game.hooks';
 
 export function GameContainer() {
-    const { data: cards, isLoading, isError } = useCardsQuery();
-    const [phase, setPhase] = useState<GamePhase>('idle');
-    const [score, setScore] = useState(0);
-    const [passesCount, setPassesCount] = useState(0);
-    const [taboosCount, setTaboosCount] = useState(0);
-    const [deck, setDeck] = useState<Card[]>([]);
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const { data: cards, isLoading: isCardsLoading, isError } = useCardsQuery();
 
-    const startGame = useCallback(() => {
-        if (!cards) return;
-        setDeck(shuffle(cards));
-        setCurrentIndex(0);
-        setScore(0);
-        setPassesCount(0);
-        setTaboosCount(0);
-        setPhase('playing');
-    }, [cards]);
+    const {
+        isHydrated,
+        state,
+        startGame,
+        pauseGame,
+        resumeGame,
+        endGame,
+        correct,
+        pass,
+        taboo,
+    } = useGameState();
 
-    const endGame = useCallback(() => {
-        setPhase('ended');
-    }, []);
-
-    const handleCorrect = useCallback(() => {
-        setScore((s) => s + 1);
-        setCurrentIndex((i) => i + 1);
-    }, []);
-
-    const handlePass = useCallback(() => {
-        // Standard rule: 0 points for pass, just skip
-        setPassesCount((c) => c + 1);
-        setCurrentIndex((i) => i + 1);
-    }, []);
-
-    const handleTaboo = useCallback(() => {
-        setScore((s) => s - 1);
-        setTaboosCount((c) => c + 1);
-        setCurrentIndex((i) => i + 1);
-    }, []);
-
-    if (isLoading) {
+    if (isCardsLoading || !isHydrated) {
         return (
             <div className="flex h-64 items-center justify-center">
                 <Loader2 className="h-8 w-8 animate-spin text-fuchsia-500" />
@@ -74,26 +38,38 @@ export function GameContainer() {
         );
     }
 
-    const currentCard = deck[currentIndex];
+    const currentCard = state.deck[state.currentIndex];
+
+    // If we run out of cards while playing, end game automatically
+    if (state.phase === 'playing' && !currentCard) {
+        setTimeout(() => endGame(), 0);
+    }
 
     return (
         <div className="w-full">
-            {phase === 'idle' && <HomeScreen onStart={startGame} />}
-            {phase === 'playing' && currentCard && (
+            {state.phase === 'idle' && <HomeScreen onStart={() => startGame(cards)} />}
+            {state.phase === 'playing' && currentCard && (
                 <GameBoard
                     card={currentCard}
-                    onCorrect={handleCorrect}
-                    onPass={handlePass}
-                    onTaboo={handleTaboo}
+                    onCorrect={() => correct(currentCard.id)}
+                    onPass={() => pass(currentCard.id)}
+                    onTaboo={() => taboo(currentCard.id)}
                     onTimeUp={endGame}
+                    startTime={state.startTime}
+                    accumulatedPausedTime={state.accumulatedPausedTime}
+                    isPaused={state.isPaused}
+                    lastPauseTime={state.lastPauseTime}
+                    timerDuration={state.timerDuration}
+                    onPause={pauseGame}
+                    onResume={resumeGame}
                 />
             )}
-            {phase === 'ended' && (
+            {state.phase === 'ended' && (
                 <EndScreen
-                    score={score}
-                    passesCount={passesCount}
-                    taboosCount={taboosCount}
-                    onPlayAgain={startGame}
+                    score={state.score}
+                    passesCount={state.passesCount}
+                    taboosCount={state.taboosCount}
+                    onPlayAgain={() => startGame(cards)}
                 />
             )}
         </div>

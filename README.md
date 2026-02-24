@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tabuu
 
-## Getting Started
+**Tabuu** è un divertente e frenetico gioco di parole a squadre, ispirato al classico gioco da tavolo "Taboo". L'obiettivo del gioco è far indovinare ai propri compagni di squadra una parola misteriosa, guidandoli con degli indizi, ma facendo molta attenzione a non pronunciare una determinata lista di **"parole proibite"** (le parole Taboo).
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🎮 Come si gioca
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Preparazione
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Dividetevi in due squadre (o più).
+2. Scegliete quale squadra inizia e chi di quella squadra sarà il primo **Suggeritore**.
+3. Gli altri membri della squadra avranno il ruolo di **Indovinatori**.
+4. Un giocatore della squadra avversaria dovrà posizionarsi dietro o accanto al Suggeritore per controllare lo schermo, facendo l'**Arbitro**.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Il Turno
 
-## Learn More
+1. Una volta cliccato su **"Inizia a Giocare"**, partirà un timer di 60 secondi (visibile in alto).
+2. Sullo schermo apparirà una carta contente:
+   - In grande: la **Parola da Indovinare**.
+   - Sotto, in un riquadro: una lista di **Parole Taboo** (Parole proibite).
+3. Il Suggeritore deve fornire indizi vocali (parlando) ai propri Indovinatori per fargli indovinare la parola indicata in grande.
+4. **ATTENZIONE:** Il Suggeritore **NON PUÒ** pronunciare:
+   - La Parola da Indovinare stessa o parti di essa.
+   - Nessuna delle Parole Taboo elencate nella carta.
+   - Versioni modificate, diminutivi, plurali o traduzioni straniere delle parole proibite.
+   - Gesti evidenti ed effetti sonori.
 
-To learn more about Next.js, take a look at the following resources:
+### Punteggi e Pulsanti in Gioco
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Mentre il Suggeritore dà gli indizi, il controllore (l'Arbitro della squadra avversaria) gestisce i pulsanti dell'interfaccia:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- ✅ **Corretto (+1 Punto):** Gli Indovinatori pronunciano l'esatta parola misteriosa. L'Arbitro clicca il pulsante verde, la squadra guadagna un punto e appare automaticamente la carta successiva.
+- ⏭️ **Passo (0 Punti):** La parola risulta troppo difficile. Il Suggeritore o l'Arbitro cliccano il pulsante per scartare la carta e passarne a una nuova senza perdere punti.
+- ❌ **Taboo (-1 Punto):** Il Suggeritore commette un errore o pronuncia inavvertitamente una parola proibita. L'Arbitro esclama "TABOO!" e preme il pulsante rosso. La squadra viene penalizzata di 1 punto, la carta viene annullata e si passa a quella successiva.
 
-## Deploy on Vercel
+*(Novità: puoi anche mettere in pausa la partita cliccando l'icona Pausa vicino al timer, o fermare anzitempo il turno con il tasto Stop).*
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Fine del Turno e della Partita
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Quando il timer si esaurisce, il turno è terminato.
+- Annotate o ricordate il punteggio ottenuto e passate il turno (e lo smartphone/computer) al Suggeritore della squadra successiva.
+- Continuate ad alternarvi a piacimento finché lo stabilite, chiusura carte, o raggiungimento del punteggio target scelto da voi all'inizio.
+- Al termine della partita, potrete ricominciare assicurandovi che le carte già uscite nella sessione **non vengano pescate di nuovo**.
+
+---
+
+## 💻 Tech Stack
+
+Questo progetto Tabuu è sviluppato con tecnologie web all'avanguardia:
+
+- **Framework:** Next.js 16 (App Router)
+- **Linguaggio:** TypeScript
+- **Stile e UI:** Tailwind CSS v4, Radix UI, Shadcn/ui
+- **Icone:** Lucide React
+- **Fetch dei dati:** TanStack React Query
+- **Persistenza:** LocalStorage sincronizzato (se chiudi o ricarichi per errore, il tuo timer, i punti e la tua carta saranno ripristinati istantaneamente).
+
+## 🚀 Avviare il progetto in locale
+
+Se vuoi eseguire il progetto o contribuire allo sviluppo, sul tuo computer:
+
+1. **Clona la repository**
+2. **Installa le dipendenze:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Avvia il server di sviluppo locale:**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Apri nel browser l'URL:**
+   [http://localhost:3007](http://localhost:3007)
+
+Buon divertimento! 🎉

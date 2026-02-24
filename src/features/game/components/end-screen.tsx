@@ -4,10 +4,12 @@ import { RotateCcw, Trophy } from 'lucide-react';
 
 interface EndScreenProps {
     score: number;
+    passesCount: number;
+    taboosCount: number;
     onPlayAgain: () => void;
 }
 
-export function EndScreen({ score, onPlayAgain }: EndScreenProps) {
+export function EndScreen({ score, passesCount, taboosCount, onPlayAgain }: EndScreenProps) {
     return (
         <Card className="border-zinc-800 bg-zinc-900/50 backdrop-blur-xl shadow-2xl text-center overflow-hidden animate-in zoom-in-95 duration-500">
             <CardHeader className="space-y-6 pb-8 pt-12">
@@ -26,6 +28,16 @@ export function EndScreen({ score, onPlayAgain }: EndScreenProps) {
             <CardContent className="space-y-8 pb-12">
                 <div className="text-7xl font-extrabold bg-gradient-to-br from-fuchsia-400 to-indigo-400 bg-clip-text text-transparent">
                     {score}
+                </div>
+                <div className="flex justify-center gap-8 pt-4 pb-2 border-t border-zinc-800">
+                    <div className="text-center">
+                        <div className="text-sm font-medium text-zinc-400 uppercase tracking-widest mb-1">Passo</div>
+                        <div className="text-2xl font-bold text-zinc-300">{passesCount}</div>
+                    </div>
+                    <div className="text-center">
+                        <div className="text-sm font-medium text-zinc-400 uppercase tracking-widest mb-1">Errori</div>
+                        <div className="text-2xl font-bold text-red-400">{taboosCount}</div>
+                    </div>
                 </div>
                 <Button
                     onClick={onPlayAgain}

@@ -22,6 +22,8 @@ export function GameContainer() {
     const { data: cards, isLoading, isError } = useCardsQuery();
     const [phase, setPhase] = useState<GamePhase>('idle');
     const [score, setScore] = useState(0);
+    const [passesCount, setPassesCount] = useState(0);
+    const [taboosCount, setTaboosCount] = useState(0);
     const [deck, setDeck] = useState<Card[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -30,6 +32,8 @@ export function GameContainer() {
         setDeck(shuffle(cards));
         setCurrentIndex(0);
         setScore(0);
+        setPassesCount(0);
+        setTaboosCount(0);
         setPhase('playing');
     }, [cards]);
 
@@ -44,11 +48,13 @@ export function GameContainer() {
 
     const handlePass = useCallback(() => {
         // Standard rule: 0 points for pass, just skip
+        setPassesCount((c) => c + 1);
         setCurrentIndex((i) => i + 1);
     }, []);
 
     const handleTaboo = useCallback(() => {
         setScore((s) => s - 1);
+        setTaboosCount((c) => c + 1);
         setCurrentIndex((i) => i + 1);
     }, []);
 
@@ -82,7 +88,14 @@ export function GameContainer() {
                     onTimeUp={endGame}
                 />
             )}
-            {phase === 'ended' && <EndScreen score={score} onPlayAgain={startGame} />}
+            {phase === 'ended' && (
+                <EndScreen
+                    score={score}
+                    passesCount={passesCount}
+                    taboosCount={taboosCount}
+                    onPlayAgain={startGame}
+                />
+            )}
         </div>
     );
 }

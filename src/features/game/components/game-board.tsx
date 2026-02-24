@@ -1,6 +1,6 @@
 import { Card } from '../game.models';
 import { Button } from '@/components/ui/button';
-import { Check, X, SkipForward, Timer } from 'lucide-react';
+import { Check, X, SkipForward, Timer, Pause, Play, Square } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 interface GameBoardProps {
@@ -13,17 +13,20 @@ interface GameBoardProps {
 
 export function GameBoard({ card, onCorrect, onPass, onTaboo, onTimeUp }: GameBoardProps) {
     const [timeLeft, setTimeLeft] = useState(60);
+    const [isPaused, setIsPaused] = useState(false);
 
     useEffect(() => {
         if (timeLeft <= 0) {
             onTimeUp();
             return;
         }
+        if (isPaused) return;
+
         const timer = setInterval(() => {
             setTimeLeft((t) => t - 1);
         }, 1000);
         return () => clearInterval(timer);
-    }, [timeLeft, onTimeUp]);
+    }, [timeLeft, isPaused, onTimeUp]);
 
     return (
         <div className="flex flex-col space-y-6 w-full animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -33,8 +36,30 @@ export function GameBoard({ card, onCorrect, onPass, onTaboo, onTimeUp }: GameBo
                     <Timer className="w-5 h-5 mr-2 text-fuchsia-400" />
                     Tempo
                 </div>
-                <div className={`text-2xl font-bold font-mono ${timeLeft <= 10 ? 'text-red-500 animate-pulse' : 'text-white'}`}>
-                    00:{timeLeft.toString().padStart(2, '0')}
+                <div className="flex items-center gap-4">
+                    <div className={`text-2xl font-bold font-mono ${timeLeft <= 10 && !isPaused ? 'text-red-500 animate-pulse' : 'text-white'}`}>
+                        00:{timeLeft.toString().padStart(2, '0')}
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <Button
+                            variant="outline"
+                            size="icon"
+                            className="h-8 w-8 rounded-full bg-zinc-800 border-zinc-700 text-zinc-300 hover:text-white hover:bg-zinc-700 transition-all"
+                            onClick={() => setIsPaused(!isPaused)}
+                            title={isPaused ? "Riprendi" : "Pausa"}
+                        >
+                            {isPaused ? <Play className="h-4 w-4 ml-0.5 fill-current" /> : <Pause className="h-4 w-4 fill-current" />}
+                        </Button>
+                        <Button
+                            variant="outline"
+                            size="icon"
+                            className="h-8 w-8 rounded-full bg-zinc-800 border-zinc-700 text-red-400 hover:text-red-300 hover:border-red-500/50 hover:bg-red-500/10 transition-all"
+                            onClick={onTimeUp}
+                            title="Termina"
+                        >
+                            <Square className="h-3.5 w-3.5 fill-current" />
+                        </Button>
+                    </div>
                 </div>
             </div>
 
@@ -55,9 +80,9 @@ export function GameBoard({ card, onCorrect, onPass, onTaboo, onTimeUp }: GameBo
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-xs font-bold text-zinc-400 uppercase tracking-widest">
                             Parole Taboo
                         </div>
-                        {card.forbiddenWords.map((word, idx) => (
+                        {card.forbiddenWords.map((word) => (
                             <div
-                                key={idx}
+                                key={word}
                                 className="text-2xl font-bold text-zinc-700 bg-zinc-50 py-3 rounded-xl border border-zinc-100 shadow-sm"
                             >
                                 {word}
@@ -71,6 +96,7 @@ export function GameBoard({ card, onCorrect, onPass, onTaboo, onTimeUp }: GameBo
             <div className="grid grid-cols-3 gap-3">
                 <Button
                     onClick={onTaboo}
+                    disabled={isPaused}
                     variant="outline"
                     className="h-20 flex-col bg-zinc-900/50 border-red-500/20 hover:bg-red-500/10 hover:border-red-500/50 text-red-400 hover:text-red-300 rounded-2xl transition-all"
                 >
@@ -79,6 +105,7 @@ export function GameBoard({ card, onCorrect, onPass, onTaboo, onTimeUp }: GameBo
                 </Button>
                 <Button
                     onClick={onPass}
+                    disabled={isPaused}
                     variant="outline"
                     className="h-20 flex-col bg-zinc-900/50 border-zinc-700 hover:bg-zinc-800 text-zinc-300 rounded-2xl transition-all"
                 >
@@ -87,6 +114,7 @@ export function GameBoard({ card, onCorrect, onPass, onTaboo, onTimeUp }: GameBo
                 </Button>
                 <Button
                     onClick={onCorrect}
+                    disabled={isPaused}
                     className="h-20 flex-col bg-fuchsia-600 hover:bg-fuchsia-500 text-white rounded-2xl shadow-[0_0_30px_-10px_rgba(192,38,211,0.5)] transition-all"
                 >
                     <Check className="w-8 h-8 mb-1" />

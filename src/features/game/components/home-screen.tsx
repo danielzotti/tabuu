@@ -15,7 +15,7 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
                 </div>
                 <div>
                     <CardTitle className="text-4xl font-extrabold tracking-tight bg-gradient-to-br from-white to-zinc-400 bg-clip-text text-transparent">
-                        Taboo
+                        Tabuu
                     </CardTitle>
                     <CardDescription className="text-zinc-400 mt-2 text-lg">
                         Il gioco delle parole vietate

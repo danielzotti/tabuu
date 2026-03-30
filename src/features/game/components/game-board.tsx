@@ -1,13 +1,14 @@
 import { Card } from '../game.models';
 import { Button } from '@/components/ui/button';
 import { Check, X, SkipForward, Timer, Pause, Play, Square } from 'lucide-react';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 interface GameBoardProps {
     readonly card: Card;
     readonly onCorrect: () => void;
     readonly onPass: () => void;
-    readonly onTaboo: () => void;
+    readonly onTabuu: () => void;
     readonly onTimeUp: () => void;
 
     // Timer props
@@ -20,12 +21,18 @@ interface GameBoardProps {
     // Pausing actions
     readonly onPause: () => void;
     readonly onResume: () => void;
+
+    // Counts
+    readonly correctCount: number;
+    readonly passesCount: number;
+    readonly tabuusCount: number;
 }
 
 export function GameBoard({
-    card, onCorrect, onPass, onTaboo, onTimeUp,
+    card, onCorrect, onPass, onTabuu, onTimeUp,
     startTime, accumulatedPausedTime, isPaused, lastPauseTime, timerDuration,
-    onPause, onResume
+    onPause, onResume,
+    correctCount, passesCount, tabuusCount
 }: GameBoardProps) {
     const [timeLeft, setTimeLeft] = useState(() => timerDuration / 1000);
 
@@ -81,7 +88,8 @@ export function GameBoard({
             <div className="flex items-center justify-between bg-zinc-900/80 backdrop-blur-md rounded-2xl p-4 border border-zinc-800 shadow-xl">
                 <div className="flex items-center text-zinc-300 font-medium">
                     <Timer className="w-5 h-5 mr-2 text-fuchsia-400" />
-                    Tempo
+                    <span className="max-[390px]:hidden">Tempo</span>
+
                 </div>
                 <div className="flex items-center gap-4">
                     <div className={`text-2xl font-bold font-mono ${timeLeft <= 10 && !isPaused ? 'text-red-500 animate-pulse' : 'text-white'}`}>
@@ -91,7 +99,7 @@ export function GameBoard({
                         <Button
                             variant="outline"
                             size="icon"
-                            className="h-8 w-8 rounded-full bg-zinc-800 border-zinc-700 text-zinc-300 hover:text-white hover:bg-zinc-700 transition-all"
+                            className="h-12 w-12 rounded-full bg-zinc-800 border-zinc-700 text-zinc-300 hover:text-white hover:bg-zinc-700 transition-all"
                             onClick={handlePauseToggle}
                             title={isPaused ? "Riprendi" : "Pausa"}
                         >
@@ -100,7 +108,7 @@ export function GameBoard({
                         <Button
                             variant="outline"
                             size="icon"
-                            className="h-8 w-8 rounded-full bg-zinc-800 border-zinc-700 text-red-400 hover:text-red-300 hover:border-red-500/50 hover:bg-red-500/10 transition-all"
+                            className="h-12 w-12 rounded-full bg-zinc-800 border-zinc-700 text-red-400 hover:text-red-300 hover:border-red-500/50 hover:bg-red-500/10 transition-all"
                             onClick={onTimeUp}
                             title="Termina"
                         >
@@ -142,28 +150,37 @@ export function GameBoard({
             {/* Action Buttons */}
             <div className="grid grid-cols-3 gap-3">
                 <Button
-                    onClick={onTaboo}
+                    onClick={onTabuu}
                     disabled={isPaused}
                     variant="outline"
-                    className="h-20 flex-col bg-zinc-900/50 border-red-500/20 hover:bg-red-500/10 hover:border-red-500/50 text-red-400 hover:text-red-300 rounded-2xl transition-all"
+                    className="h-20 flex-col bg-zinc-900/50 border-red-500/20 hover:bg-red-500/10 hover:border-red-500/50 text-red-400 hover:text-red-300 rounded-2xl transition-all relative"
                 >
+                    <div className="absolute top-2 right-2 min-w-[20px] h-5 px-1 flex items-center justify-center bg-red-500 text-white text-[10px] font-bold rounded-full border border-zinc-900 shadow-lg">
+                        {tabuusCount}
+                    </div>
                     <X className="w-8 h-8 mb-1" />
-                    <span className="text-xs font-bold uppercase tracking-wider">Taboo</span>
+                    <span className="text-xs font-bold uppercase tracking-wider">Tabuu</span>
                 </Button>
                 <Button
                     onClick={onPass}
                     disabled={isPaused}
                     variant="outline"
-                    className="h-20 flex-col bg-zinc-900/50 border-zinc-700 hover:bg-zinc-800 text-zinc-300 rounded-2xl transition-all"
+                    className="h-20 flex-col bg-zinc-900/50 border-zinc-700 hover:bg-zinc-800 text-zinc-300 rounded-2xl transition-all relative"
                 >
+                    <div className="absolute top-2 right-2 min-w-[20px] h-5 px-1 flex items-center justify-center bg-zinc-600 text-white text-[10px] font-bold rounded-full border border-zinc-900 shadow-lg">
+                        {passesCount}
+                    </div>
                     <SkipForward className="w-8 h-8 mb-1" />
                     <span className="text-xs font-bold uppercase tracking-wider">Passo</span>
                 </Button>
                 <Button
                     onClick={onCorrect}
                     disabled={isPaused}
-                    className="h-20 flex-col bg-fuchsia-600 hover:bg-fuchsia-500 text-white rounded-2xl shadow-[0_0_30px_-10px_rgba(192,38,211,0.5)] transition-all"
+                    className="h-20 flex-col bg-fuchsia-600 hover:bg-fuchsia-500 text-white rounded-2xl shadow-[0_0_30px_-10px_rgba(192,38,211,0.5)] transition-all relative"
                 >
+                    <div className="absolute top-2 right-2 min-w-[20px] h-5 px-1 flex items-center justify-center bg-white text-fuchsia-600 text-[10px] font-bold rounded-full shadow-lg">
+                        {correctCount}
+                    </div>
                     <Check className="w-8 h-8 mb-1" />
                     <span className="text-xs font-bold uppercase tracking-wider">Corretto</span>
                 </Button>

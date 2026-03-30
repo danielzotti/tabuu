@@ -1,6 +1,6 @@
 # Tabuu
 
-**Tabuu** è un divertente e frenetico gioco di parole a squadre, ispirato al classico gioco da tavolo "Taboo". L'obiettivo del gioco è far indovinare ai propri compagni di squadra una parola misteriosa, guidandoli con degli indizi, ma facendo molta attenzione a non pronunciare una determinata lista di **"parole proibite"** (le parole Taboo).
+**Tabuu** è un divertente e frenetico gioco di parole a squadre, ispirato al classico gioco da tavolo "Taboo". L'obiettivo del gioco è far indovinare ai propri compagni di squadra una parola misteriosa, guidandoli con degli indizi, ma facendo molta attenzione a non pronunciare una determinata lista di **"parole proibite"** (le parole tabù).
 
 ---
 
@@ -18,11 +18,11 @@
 1. Una volta cliccato su **"Inizia a Giocare"**, partirà un timer di 60 secondi (visibile in alto).
 2. Sullo schermo apparirà una carta contente:
    - In grande: la **Parola da Indovinare**.
-   - Sotto, in un riquadro: una lista di **Parole Taboo** (Parole proibite).
+   - Sotto, in un riquadro: una lista di **Parole tabù** (Parole proibite).
 3. Il Suggeritore deve fornire indizi vocali (parlando) ai propri Indovinatori per fargli indovinare la parola indicata in grande.
 4. **ATTENZIONE:** Il Suggeritore **NON PUÒ** pronunciare:
    - La Parola da Indovinare stessa o parti di essa.
-   - Nessuna delle Parole Taboo elencate nella carta.
+   - Nessuna delle parole tabù elencate nella carta.
    - Versioni modificate, diminutivi, plurali o traduzioni straniere delle parole proibite.
    - Gesti evidenti ed effetti sonori.
 
@@ -32,7 +32,7 @@ Mentre il Suggeritore dà gli indizi, il controllore (l'Arbitro della squadra av
 
 - ✅ **Corretto (+1 Punto):** Gli Indovinatori pronunciano l'esatta parola misteriosa. L'Arbitro clicca il pulsante verde, la squadra guadagna un punto e appare automaticamente la carta successiva.
 - ⏭️ **Passo (0 Punti):** La parola risulta troppo difficile. Il Suggeritore o l'Arbitro cliccano il pulsante per scartare la carta e passarne a una nuova senza perdere punti.
-- ❌ **Taboo (-1 Punto):** Il Suggeritore commette un errore o pronuncia inavvertitamente una parola proibita. L'Arbitro esclama "TABOO!" e preme il pulsante rosso. La squadra viene penalizzata di 1 punto, la carta viene annullata e si passa a quella successiva.
+- ❌ **Tabuu (-1 Punto):** Il Suggeritore commette un errore o pronuncia inavvertitamente una parola proibita. L'Arbitro esclama "Tabù!" e preme il pulsante rosso. La squadra viene penalizzata di 1 punto, la carta viene annullata e si passa a quella successiva.
 
 *(Novità: puoi anche mettere in pausa la partita cliccando l'icona Pausa vicino al timer, o fermare anzitempo il turno con il tasto Stop).*
 

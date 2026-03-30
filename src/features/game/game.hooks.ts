@@ -6,8 +6,9 @@ const STORAGE_KEY = 'tabuu_game_state';
 export interface GameState {
     phase: GamePhase;
     score: number;
+    correctCount: number;
     passesCount: number;
-    taboosCount: number;
+    tabuusCount: number;
     seenCardIds: number[];
     deck: Card[];
     currentIndex: number;
@@ -23,8 +24,9 @@ export interface GameState {
 const initialState: GameState = {
     phase: 'idle',
     score: 0,
+    correctCount: 0,
     passesCount: 0,
-    taboosCount: 0,
+    tabuusCount: 0,
     seenCardIds: [],
     deck: [],
     currentIndex: 0,
@@ -129,6 +131,7 @@ export function useGameState() {
         setState((prev) => ({
             ...prev,
             score: prev.score + 1,
+            correctCount: prev.correctCount + 1,
             seenCardIds: Array.from(new Set([...prev.seenCardIds, cardId])),
             currentIndex: prev.currentIndex + 1,
         }));
@@ -143,11 +146,11 @@ export function useGameState() {
         }));
     }, []);
 
-    const taboo = useCallback((cardId: number) => {
+    const tabuu = useCallback((cardId: number) => {
         setState((prev) => ({
             ...prev,
             score: prev.score - 1,
-            taboosCount: prev.taboosCount + 1,
+            tabuusCount: prev.tabuusCount + 1,
             seenCardIds: Array.from(new Set([...prev.seenCardIds, cardId])),
             currentIndex: prev.currentIndex + 1,
         }));
@@ -162,6 +165,6 @@ export function useGameState() {
         endGame,
         correct,
         pass,
-        taboo,
+        tabuu,
     };
 }

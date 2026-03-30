@@ -19,7 +19,7 @@ export function GameContainer() {
         endGame,
         correct,
         pass,
-        taboo,
+        tabuu,
     } = useGameState();
 
     if (isCardsLoading || !isHydrated) {
@@ -53,7 +53,7 @@ export function GameContainer() {
                     card={currentCard}
                     onCorrect={() => correct(currentCard.id)}
                     onPass={() => pass(currentCard.id)}
-                    onTaboo={() => taboo(currentCard.id)}
+                    onTabuu={() => tabuu(currentCard.id)}
                     onTimeUp={endGame}
                     startTime={state.startTime}
                     accumulatedPausedTime={state.accumulatedPausedTime}
@@ -62,13 +62,17 @@ export function GameContainer() {
                     timerDuration={state.timerDuration}
                     onPause={pauseGame}
                     onResume={resumeGame}
+                    correctCount={state.correctCount}
+                    passesCount={state.passesCount}
+                    tabuusCount={state.tabuusCount}
                 />
             )}
             {state.phase === 'ended' && (
                 <EndScreen
                     score={state.score}
+                    correctCount={state.correctCount}
                     passesCount={state.passesCount}
-                    taboosCount={state.taboosCount}
+                    tabuusCount={state.tabuusCount}
                     onPlayAgain={() => startGame(cards)}
                 />
             )}

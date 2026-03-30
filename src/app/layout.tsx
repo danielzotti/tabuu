@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Outfit } from 'next/font/google';
 import './globals.css';
 import { QueryProvider } from '@/providers/query-provider';
+import { ReactNode } from 'react';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -9,14 +10,14 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: 'Taboo | Il Gioco delle Parole Vietate',
-  description: 'Un elegante clone del gioco Taboo.',
+  title: 'Tabuu',
+  description: 'Il Gioco delle parole vietate',
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="it" className="dark">

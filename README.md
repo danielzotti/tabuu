@@ -1,5 +1,7 @@
 # Tabuu
 
+![Tabuu Logo](public/tabuu-logo.png)
+
 **Tabuu** è un divertente e frenetico gioco di parole a squadre, ispirato al classico gioco da tavolo "Taboo". L'obiettivo del gioco è far indovinare ai propri compagni di squadra una parola misteriosa, guidandoli con degli indizi, ma facendo molta attenzione a non pronunciare una determinata lista di **"parole proibite"** (le parole tabù).
 
 ---

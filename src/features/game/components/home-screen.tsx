@@ -18,7 +18,7 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
                         Tabuu
                     </CardTitle>
                     <CardDescription className="text-zinc-400 mt-2 text-lg">
-                        Il gioco delle parole vietate
+                        Sfida i tuoi amici nel gioco di parole più divertente e frenetico
                     </CardDescription>
                 </div>
             </CardHeader>

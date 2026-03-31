@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { RotateCcw, Trophy } from 'lucide-react';
+import { RotateCcw, Home } from 'lucide-react';
 import Image from 'next/image';
 
 interface EndScreenProps {
@@ -9,9 +9,10 @@ interface EndScreenProps {
     passesCount: number;
     tabuusCount: number;
     onPlayAgain: () => void;
+    onEndGame: () => void;
 }
 
-export function EndScreen({ score, correctCount, passesCount, tabuusCount, onPlayAgain }: EndScreenProps) {
+export function EndScreen({ score, correctCount, passesCount, tabuusCount, onPlayAgain, onEndGame }: EndScreenProps) {
     return (
         <Card className="border-zinc-800 bg-zinc-900/50 backdrop-blur-xl shadow-2xl text-center overflow-hidden animate-in zoom-in-95 duration-500">
             <CardHeader className="space-y-6 pb-0 pt-4">
@@ -46,15 +47,25 @@ export function EndScreen({ score, correctCount, passesCount, tabuusCount, onPla
                         <div className="text-2xl font-bold text-red-400">{tabuusCount}</div>
                     </div>
                 </div>
-                <Button
-                    onClick={onPlayAgain}
-                    size="lg"
-                    variant="outline"
-                    className="rounded-full px-8 py-6 text-lg font-semibold border-zinc-700 bg-zinc-800/50 text-white hover:bg-zinc-800 hover:text-white transition-all hover:scale-105 active:scale-95"
-                >
-                    <RotateCcw className="mr-2 h-5 w-5" />
-                    Gioca Ancora
-                </Button>
+                <div className="flex flex-col gap-4">
+                    <Button
+                        onClick={onPlayAgain}
+                        size="lg"
+                        variant="outline"
+                        className="rounded-full px-8 py-6 text-lg font-semibold border-zinc-700 bg-zinc-800/50 text-white hover:bg-zinc-800 hover:text-white transition-all hover:scale-105 active:scale-95"
+                    >
+                        <RotateCcw className="mr-2 h-5 w-5" />
+                        Gioca Ancora
+                    </Button>
+                    <Button
+                        onClick={onEndGame}
+                        variant="ghost"
+                        className="text-zinc-500 hover:text-white hover:bg-transparent transition-all"
+                    >
+                        <Home className="mr-2 h-4 w-4" />
+                        Termina partita
+                    </Button>
+                </div>
             </CardContent>
         </Card>
     );

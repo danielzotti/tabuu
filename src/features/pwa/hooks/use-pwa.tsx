@@ -24,19 +24,35 @@ function setupServiceWorker(
   });
 }
 
+const INSTALL_SNOOZE_KEY = 'pwa_install_snooze';
+const UPDATE_SNOOZE_KEY = 'pwa_update_snooze';
+const SNOOZE_DURATION = 7 * 24 * 60 * 60 * 1000; // 1 week
+
+function isSnoozed(key: string) {
+  if (globalThis.window === undefined) return false;
+  const lastSnooze = localStorage.getItem(key);
+  if (!lastSnooze) return false;
+  return Date.now() - Number.parseInt(lastSnooze) < SNOOZE_DURATION;
+}
+
 export function usePWA() {
   const [installPrompt, setInstallPrompt] = useState<any>(null);
-  const [isUpdateAvailable, setIsUpdateAvailable] = useState(false);
+  const [isUpdateAvailableInternal, setIsUpdateAvailableInternal] = useState(false);
   const [registration, setRegistration] = useState<ServiceWorkerRegistration | null>(null);
+  const [isInstallSnoozed, setIsInstallSnoozed] = useState(false);
+  const [isUpdateSnoozed, setIsUpdateSnoozed] = useState(false);
 
   useEffect(() => {
+    setIsInstallSnoozed(isSnoozed(INSTALL_SNOOZE_KEY));
+    setIsUpdateSnoozed(isSnoozed(UPDATE_SNOOZE_KEY));
+
     const handleBeforeInstallPrompt = (e: any) => {
       e.preventDefault();
       setInstallPrompt(e);
     };
 
     globalThis.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    setupServiceWorker(setIsUpdateAvailable, setRegistration);
+    setupServiceWorker(setIsUpdateAvailableInternal, setRegistration);
 
     return () => {
       globalThis.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
@@ -55,6 +71,8 @@ export function usePWA() {
 
   const dismissInstall = () => {
     setInstallPrompt(null);
+    localStorage.setItem(INSTALL_SNOOZE_KEY, Date.now().toString());
+    setIsInstallSnoozed(true);
   };
 
   const handleUpdate = () => {
@@ -64,11 +82,17 @@ export function usePWA() {
     }
   };
 
+  const dismissUpdate = () => {
+    setIsUpdateSnoozed(true);
+    localStorage.setItem(UPDATE_SNOOZE_KEY, Date.now().toString());
+  };
+
   return {
-    canInstall: !!installPrompt,
-    isUpdateAvailable,
+    canInstall: !!installPrompt && !isInstallSnoozed,
+    isUpdateAvailable: isUpdateAvailableInternal && !isUpdateSnoozed,
     handleUpdate,
+    dismissUpdate,
     handleInstall,
     dismissInstall,
   };
-}
+};

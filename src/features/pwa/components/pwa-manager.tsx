@@ -14,7 +14,7 @@ import { Download, RefreshCw } from 'lucide-react';
 import Image from 'next/image';
 
 export function PWAManager() {
-  const { canInstall, isUpdateAvailable, handleInstall, handleUpdate, dismissInstall } = usePWA();
+  const { canInstall, isUpdateAvailable, handleInstall, handleUpdate, dismissInstall, dismissUpdate } = usePWA();
 
   return (
     <>
@@ -59,7 +59,7 @@ export function PWAManager() {
       </Dialog>
 
       {/* Update Prompt */}
-      <Dialog open={isUpdateAvailable}>
+      <Dialog open={isUpdateAvailable} onOpenChange={(open) => !open && dismissUpdate()}>
         <DialogContent className="sm:max-w-md border-indigo-500/20 bg-zinc-950/95 backdrop-blur-xl">
           <DialogHeader className="flex flex-col items-center gap-4">
             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-indigo-500/10 text-indigo-400 shadow-inner">
@@ -74,10 +74,17 @@ export function PWAManager() {
               </DialogDescription>
             </div>
           </DialogHeader>
-          <DialogFooter className="pt-4">
+          <DialogFooter className="flex-col gap-2 pt-4 sm:justify-between">
+            <Button
+              variant="outline"
+              onClick={dismissUpdate}
+              className="border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-900 shadow-sm"
+            >
+              Non ora
+            </Button>
             <Button
               onClick={handleUpdate}
-              className="w-full bg-gradient-to-r from-indigo-600 to-fuchsia-600 hover:from-indigo-500 hover:to-fuchsia-500 text-white border-0 shadow-lg shadow-indigo-500/20"
+              className="bg-gradient-to-r from-indigo-600 to-fuchsia-600 hover:from-indigo-500 hover:to-fuchsia-500 text-white border-0 shadow-lg shadow-indigo-500/20"
             >
               <RefreshCw className="mr-2 h-4 w-4" />
               Aggiorna e Ricarica

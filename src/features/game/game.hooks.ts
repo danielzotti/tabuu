@@ -127,6 +127,10 @@ export function useGameState() {
         }));
     }, []);
 
+    const resetGame = useCallback(() => {
+        setState(initialState);
+    }, []);
+
     const correct = useCallback((cardId: number) => {
         setState((prev) => ({
             ...prev,
@@ -166,5 +170,6 @@ export function useGameState() {
         correct,
         pass,
         tabuu,
+        resetGame,
     };
 }

@@ -1,8 +1,7 @@
-import { Card } from '../game.models';
 import { Button } from '@/components/ui/button';
-import { Check, X, SkipForward, Timer, Pause, Play, Square } from 'lucide-react';
-import Image from 'next/image';
+import { Check, Pause, Play, SkipForward, Square, Timer, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { Card } from '../game.models';
 
 interface GameBoardProps {
     readonly card: Card;

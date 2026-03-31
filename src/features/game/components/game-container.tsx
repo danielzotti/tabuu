@@ -1,11 +1,11 @@
 'use client';
 
-import { useCardsQuery } from '../game.queries';
-import { HomeScreen } from './home-screen';
-import { GameBoard } from './game-board';
-import { EndScreen } from './end-screen';
 import { Loader2 } from 'lucide-react';
 import { useGameState } from '../game.hooks';
+import { useCardsQuery } from '../game.queries';
+import { EndScreen } from './end-screen';
+import { GameBoard } from './game-board';
+import { HomeScreen } from './home-screen';
 
 export function GameContainer() {
     const { data: cards, isLoading: isCardsLoading, isError } = useCardsQuery();
@@ -20,6 +20,7 @@ export function GameContainer() {
         correct,
         pass,
         tabuu,
+        resetGame,
     } = useGameState();
 
     if (isCardsLoading || !isHydrated) {
@@ -74,6 +75,7 @@ export function GameContainer() {
                     passesCount={state.passesCount}
                     tabuusCount={state.tabuusCount}
                     onPlayAgain={() => startGame(cards)}
+                    onEndGame={resetGame}
                 />
             )}
         </div>

@@ -1,8 +1,9 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Outfit } from 'next/font/google';
 import './globals.css';
 import { QueryProvider } from '@/providers/query-provider';
 import { ReactNode } from 'react';
+import { PWAManager } from '@/features/pwa/components/pwa-manager';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -11,7 +12,25 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: 'Tabuu',
-  description: 'Il Gioco delle parole vietate',
+  description: 'Sfida i tuoi amici nel gioco di parole più divertente e frenetico.',
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Tabuu',
+  },
+  icons: {
+    icon: '/icon-192x192.png',
+    apple: '/icon-192x192.png',
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#a21caf',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
@@ -29,6 +48,7 @@ export default function RootLayout({
             {/* Background ambient light */}
             <div className="absolute top-1/2 left-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 opacity-20 blur-[100px] bg-gradient-to-tr from-fuchsia-600 to-indigo-600 rounded-full pointer-events-none" />
             <main className="w-full max-w-md p-4">{children}</main>
+            <PWAManager />
           </div>
         </QueryProvider>
       </body>

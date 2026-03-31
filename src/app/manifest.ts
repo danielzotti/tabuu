@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Tabuu - Il Gioco delle parole vietate',
+    name: 'Tabuu',
     short_name: 'Tabuu',
     description: 'Sfida i tuoi amici nel gioco di parole più divertente e frenetico.',
     start_url: '/',
